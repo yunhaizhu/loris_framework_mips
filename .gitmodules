@@ -1,0 +1,3 @@
+[submodule "loris_framework"]
+	path = loris_framework
+	url = git@bitbucket.org:yunhai/loris_framework.git

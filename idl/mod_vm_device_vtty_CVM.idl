@@ -1,0 +1,25 @@
+#define VERSION "1.0.0"
+#define MODULE "mod_vm_device_vtty"
+#define INSTANCE "mod_vm_device_vtty_CVM"
+
+typedef struct vtty_serial_option {
+    std_char_t *device;
+    std_int_t baudrate;
+    std_int_t data_bits;
+    std_int_t parity;
+    std_int_t stop_bits;
+    std_int_t hw_flow;
+} vtty_serial_option_t;
+
+typedef struct vtty_t {
+} vtty_t;
+
+typedef void (*read_notifier_t) (vtty_t2 *);
+
+std_void_t initiate();
+vtty_t *create(std_char_t *name, std_int_t type, std_int_t tcp_port, vtty_serial_option_t *option, read_notifier_t *rnf);
+std_int_t get_char(vtty_t *vtty);
+std_void_t put_char(vtty_t *vtty, std_char_t ch);
+std_void_t put_buffer(vtty_t *vtty, std_char_t *buf, std_uint_t len);
+std_int_t is_char_avail(vtty_t *vtty);
+std_int_t is_full(vtty_t *vtty);

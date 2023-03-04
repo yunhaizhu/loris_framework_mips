@@ -1,0 +1,9 @@
+#define VERSION "1.0.0"
+#define MODULE "mod_vm_arch"
+#define INSTANCE "mod_vm_arch_MIPS"
+
+std_void_t initiate(std_u32_t entry);
+std_void_t start();
+std_void_t stop();
+std_void_t suspend();
+std_void_t resume();

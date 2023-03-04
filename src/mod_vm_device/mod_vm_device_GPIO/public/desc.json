@@ -1,0 +1,15 @@
+{
+  "name": "mod_vm_device",
+  "instance": "mod_vm_device_GPIO",
+  "description": "",
+  "version": "1.0.0",
+  "dependence": {
+    "mod_shell": "1.0.0"
+  },
+  "interface": [
+    "mod_vm_device_initiate",
+    "mod_vm_device_reset",
+    "mod_vm_device_access",
+    "mod_vm_device_command"
+  ]
+}

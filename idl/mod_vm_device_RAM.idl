@@ -1,0 +1,28 @@
+#define VERSION "1.0.0"
+#define MODULE "mod_vm_device"
+#define INSTANCE "mod_vm_device_RAM2"
+
+typedef struct vm_device_init_st {
+    std_char_t name[32];
+    std_uint_t id;
+    std_u32_t phys_addr;
+    std_u32_t phys_len;
+    std_u64_t host_addr;
+    std_void_t *priv_data;
+    std_32_t flags;
+    std_32_t fd;
+} vm_device_init_t;
+
+typedef struct vm_device_access_st {
+    std_u32_t offset;
+    std_u32_t op_size;
+    std_u32_t op_type;
+    std_u32_t *data;
+    std_u8_t *has_set_value;
+    std_u8_t channel;
+} vm_device_access_t;
+
+std_void_t initiate(vm_device_init_t *arg);
+std_void_t reset();
+std_void_t *access(vm_device_access_t *arg);
+std_void_t command(std_void_t *arg);

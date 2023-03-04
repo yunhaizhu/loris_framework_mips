@@ -1,0 +1,9 @@
+#define VERSION "1.0.0"
+#define MODULE "mod_vm"
+#define INSTANCE "mod_vm_MINI"
+
+std_void_t initiate(std_char_t *conf_name);
+std_void_t start();
+std_void_t stop();
+std_void_t suspend();
+std_void_t resume();

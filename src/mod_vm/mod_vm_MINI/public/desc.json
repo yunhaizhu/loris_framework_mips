@@ -1,0 +1,16 @@
+{
+    "name":"mod_vm",
+    "instance":"mod_vm_MINI",
+    "description": "",
+    "version": "1.0.0",
+    "dependence":{
+        "mod_shell":"1.0.0"
+    },
+    "interface":[
+        "mod_vm_initiate",
+        "mod_vm_start",
+        "mod_vm_stop",
+        "mod_vm_suspend",
+        "mod_vm_resume"
+    ]
+}

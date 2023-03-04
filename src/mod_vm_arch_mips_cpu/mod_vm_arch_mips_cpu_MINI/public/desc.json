@@ -1,0 +1,19 @@
+{
+    "name":"mod_vm_arch_mips_cpu",
+    "instance":"mod_vm_arch_mips_cpu_MINI",
+    "description": "",
+    "version": "1.0.0",
+    "dependence":{
+        "mod_shell":"1.0.0"
+    },
+    "interface":[
+        "mod_vm_arch_mips_cpu_reset",
+        "mod_vm_arch_mips_cpu_fetch",
+        "mod_vm_arch_mips_cpu_exec",
+        "mod_vm_arch_mips_cpu_set_pc",
+        "mod_vm_arch_mips_cpu_set_llbit",
+        "mod_vm_arch_mips_cpu_is_in_bdslot",
+        "mod_vm_arch_mips_cpu_break_idle",
+        "mod_vm_arch_mips_cpu_run"
+    ]
+}

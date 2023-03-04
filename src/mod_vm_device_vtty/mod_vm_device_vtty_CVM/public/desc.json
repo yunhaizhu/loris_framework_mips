@@ -1,0 +1,18 @@
+{
+  "name": "mod_vm_device_vtty",
+  "instance": "mod_vm_device_vtty_CVM",
+  "description": "",
+  "version": "1.0.0",
+  "dependence": {
+    "mod_shell": "1.0.0"
+  },
+  "interface": [
+    "mod_vm_device_vtty_initiate",
+    "mod_vm_device_vtty_create",
+    "mod_vm_device_vtty_get_char",
+    "mod_vm_device_vtty_put_char",
+    "mod_vm_device_vtty_put_buffer",
+    "mod_vm_device_vtty_is_char_avail",
+    "mod_vm_device_vtty_is_full"
+  ]
+}

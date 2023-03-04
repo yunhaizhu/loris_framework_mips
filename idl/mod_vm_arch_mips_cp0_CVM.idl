@@ -1,0 +1,15 @@
+#define VERSION "1.0.0"
+#define MODULE "mod_vm_arch_mips_cp0"
+#define INSTANCE "mod_vm_arch_mips_cp0_CVM"
+
+std_void_t reset();
+std_void_t trigger_exception(std_u32_t type, std_u32_t cause);
+std_void_t tlb_op(std_u32_t op_type, std_u32_t insn);
+std_int_t tlb_lookup(std_u32_t vaddr, std_void_t *res);
+std_void_t mtc_op(std_u32_t cp0_reg, std_u32_t val);
+std_u32_t mfc_op(std_u32_t cp0_reg, std_u32_t sel);
+std_void_t access_special(std_u32_t vaddr, std_u32_t mask, std_u32_t op_code, std_u32_t op_type, std_u32_t op_size, std_u32_t *data, std_u32_t *exc);
+std_int_t irq_op(std_u32_t type, std_u32_t irq);
+std_int_t timer();
+std_int_t eret();
+std_int_t soft_fpu();

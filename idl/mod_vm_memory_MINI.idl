@@ -1,0 +1,9 @@
+#define VERSION "1.0.0"
+#define MODULE "mod_vm_memory"
+#define INSTANCE "mod_vm_memory_MINI"
+
+std_int_t initiate();
+std_void_t *lookup(std_u32_t vaddr);
+std_void_t *access(std_u32_t vaddr, std_uint_t op_code, std_uint_t op_size, std_uint_t op_type, std_u32_t *data, std_u8_t *has_set_value);
+std_void_t map(std_u32_t vaddr);
+std_void_t unmap(std_u32_t vaddr);

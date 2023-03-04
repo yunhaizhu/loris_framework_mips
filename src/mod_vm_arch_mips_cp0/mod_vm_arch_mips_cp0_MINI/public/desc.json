@@ -1,0 +1,22 @@
+{
+    "name":"mod_vm_arch_mips_cp0",
+    "instance":"mod_vm_arch_mips_cp0_MINI",
+    "description": "",
+    "version": "1.0.0",
+    "dependence":{
+        "mod_shell":"1.0.0"
+    },
+    "interface":[
+        "mod_vm_arch_mips_cp0_reset",
+        "mod_vm_arch_mips_cp0_trigger_exception",
+        "mod_vm_arch_mips_cp0_tlb_op",
+        "mod_vm_arch_mips_cp0_tlb_lookup",
+        "mod_vm_arch_mips_cp0_mtc_op",
+        "mod_vm_arch_mips_cp0_mfc_op",
+        "mod_vm_arch_mips_cp0_access_special",
+        "mod_vm_arch_mips_cp0_irq_op",
+        "mod_vm_arch_mips_cp0_timer",
+        "mod_vm_arch_mips_cp0_eret",
+        "mod_vm_arch_mips_cp0_soft_fpu"
+    ]
+}
