@@ -340,6 +340,7 @@ STD_CALL std_void_t mod_vm_arch_mips_cpu_CVM_run(IN mod_vm_arch_mips_cpu_t *p_m)
     cvm_arch_mips_cpu_t *cpu = &(cvm_info->cpu);
     std_bool_t jit_run = TRUE;
 
+RESTART:
     if (unlikely(cpu->state != CPU_STATE_RUNNING)){
         goto LOOP_CHECK;
     }
@@ -363,7 +364,7 @@ LOOP_CHECK:
         {
             case CPU_STATE_RUNNING:
                 cpu->state = CPU_STATE_RUNNING;
-                return;
+                goto RESTART;
 
             case CPU_STATE_HALTED:
                 cpu->cpu_thread_running = FALSE;
@@ -379,7 +380,7 @@ LOOP_CHECK:
                 cpu->state = CPU_STATE_RUNNING;
                 cpu->pause_request &= ~CPU_INTERRUPT_EXIT;
                 /*start cpu again */
-                return;
+                goto RESTART;
 
             default:
                 break;
