@@ -21,6 +21,7 @@
 
 #include "cvm_arch_mips_cpu.h"
 #include "mips64_jit.h"
+typedef std_u32_t mips_insn_t;
 
 /**
  * mips64_dump_insn_with_buffer
