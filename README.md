@@ -2,7 +2,8 @@
 MIPS virtual machine (JIT) build with loris_framework.
 
 ## link file into loris_framework
-sh init.sh
+1. git submodule update --remote
+2. sh init.sh
 
 ## loris_framework configure 
 Read loris_framework/README.md to install necessary depended files. 
