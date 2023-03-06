@@ -4,6 +4,9 @@ MIPS virtual machine (JIT) build with loris_framework.
 ## link file into loris_framework
 sh init.sh
 
+## loris_framework configure 
+Read loris_framework/README.md to install necessary depended files. 
+
 ## compile and run
 1. cmake --build cmake-build-debug
 2. cmake --install cmake-build-debug
