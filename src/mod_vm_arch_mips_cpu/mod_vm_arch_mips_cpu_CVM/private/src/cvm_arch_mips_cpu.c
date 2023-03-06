@@ -1651,8 +1651,7 @@ std_void_t cpu_idle_loop(IN cvm_arch_mips_cpu_t *cpu)
 #else
     std_int_t s;
     while ((s = sem_timedwait(&cpu->idle_sem, &t_spc)) == -1 && errno == EINTR){
-        continue;
-    }
+           }
 #endif
 
 }
