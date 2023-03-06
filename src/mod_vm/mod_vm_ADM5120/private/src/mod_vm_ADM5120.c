@@ -254,11 +254,11 @@ STD_CALL std_rv_t mod_vm_ADM5120_cleanup(mod_vm_t *p_m)
 STD_CALL std_int_t vm_main_initiate(IN mod_vm_t *p_owner_m)
 {
     mod_vm_device_t *p_ram = NULL;
-    mod_vm_device_t *p_pci = NULL;
-    mod_vm_device_t *p_mpmc = NULL;
+//    mod_vm_device_t *p_pci = NULL;
+//    mod_vm_device_t *p_mpmc = NULL;
     mod_vm_device_t *p_uart = NULL;
     mod_vm_device_t *p_flash = NULL;
-    mod_vm_device_t *p_gpio = NULL;
+//    mod_vm_device_t *p_gpio = NULL;
 
     std_u32_t entry_point;
 
@@ -268,14 +268,14 @@ STD_CALL std_int_t vm_main_initiate(IN mod_vm_t *p_owner_m)
     mod_iid_t mod_vm_memory_iid = MOD_VM_MEMORY_IID;
     mod_iid_t mod_vm_device_manager_iid = MOD_VM_DEVICE_MANAGER_IID;
     mod_iid_t mod_vm_device_RAM_iid = MOD_VM_DEVICE_RAM_IID;
-    mod_iid_t mod_vm_device_PCI_iid = MOD_VM_DEVICE_PCI_IID;
-    mod_iid_t mod_vm_device_MPMC_iid = MOD_VM_DEVICE_MPMC_IID;
+//    mod_iid_t mod_vm_device_PCI_iid = MOD_VM_DEVICE_PCI_IID;
+//    mod_iid_t mod_vm_device_MPMC_iid = MOD_VM_DEVICE_MPMC_IID;
     mod_iid_t mod_vm_device_INT_iid = MOD_VM_DEVICE_INT_IID;
     mod_iid_t mod_vm_device_SW_iid = MOD_VM_DEVICE_SW_IID;
     mod_iid_t mod_vm_device_vtty_iid = MOD_VM_DEVICE_VTTY_IID;
     mod_iid_t modm_vm_device_UART_iid = MOD_VM_DEVICE_UART_IID;
     mod_iid_t mod_vm_device_ETH_CS8900_iid = MOD_VM_DEVICE_ETH_CS8900_IID;
-    mod_iid_t mod_vm_device_GPIO_iid = MOD_VM_DEVICE_GPIO_IID;
+//    mod_iid_t mod_vm_device_GPIO_iid = MOD_VM_DEVICE_GPIO_IID;
     mod_iid_t mod_vm_device_NORFLASH4M_iid = MOD_VM_DEVICE_NORFLASH4M_IID;
 
     mod_create_instance(&mod_vm_arch_iid, (void **) &p_global_vm_arch, (mod_ownership_t *) p_owner_m);
@@ -284,27 +284,27 @@ STD_CALL std_int_t vm_main_initiate(IN mod_vm_t *p_owner_m)
     mod_create_instance(&mod_vm_memory_iid, (void **) &p_global_vm_memory, (mod_ownership_t *) p_owner_m);
     mod_create_instance(&mod_vm_device_manager_iid, (void **) &p_global_dev_manger, (mod_ownership_t *) p_owner_m);
     mod_create_instance(&mod_vm_device_RAM_iid, (void **) &p_ram, (mod_ownership_t *) p_owner_m);
-    mod_create_instance(&mod_vm_device_PCI_iid, (void **) &p_pci, (mod_ownership_t *) p_owner_m);
-    mod_create_instance(&mod_vm_device_MPMC_iid, (void **) &p_mpmc, (mod_ownership_t *) p_owner_m);
+//    mod_create_instance(&mod_vm_device_PCI_iid, (void **) &p_pci, (mod_ownership_t *) p_owner_m);
+//    mod_create_instance(&mod_vm_device_MPMC_iid, (void **) &p_mpmc, (mod_ownership_t *) p_owner_m);
     mod_create_instance(&mod_vm_device_INT_iid, (void **) &p_global_device_INT, (mod_ownership_t *) p_owner_m);
     mod_create_instance(&mod_vm_device_SW_iid, (void **) &p_global_device_SW, (mod_ownership_t *) p_owner_m);
     mod_create_instance(&mod_vm_device_vtty_iid, (void **) &p_global_device_VTTY, (mod_ownership_t *) p_owner_m);
     mod_create_instance(&modm_vm_device_UART_iid, (void **) &p_uart, (mod_ownership_t *) p_owner_m);
     mod_create_instance(&mod_vm_device_ETH_CS8900_iid, (void **) &p_global_device_ETH, (mod_ownership_t *) p_owner_m);
-    mod_create_instance(&mod_vm_device_GPIO_iid, (void **) &p_gpio, (mod_ownership_t *) p_owner_m);
+//    mod_create_instance(&mod_vm_device_GPIO_iid, (void **) &p_gpio, (mod_ownership_t *) p_owner_m);
     mod_create_instance(&mod_vm_device_NORFLASH4M_iid, (void **) &p_flash, (mod_ownership_t *) p_owner_m);
 
     mod_vm_device_manager_init(p_global_dev_manger, NULL, 0);
 
     device_init("RAM", 0x00000000ULL, 32 * 1048576, p_ram);
-    device_init("PCI", ADM5120_PCI_BASE, PCI_INDEX_MAX * 4, p_pci);
-    device_init("MPMC", ADM5120_MPMC_BASE, MPMC_INDEX_MAX * 4, p_mpmc);
+//    device_init("PCI", ADM5120_PCI_BASE, PCI_INDEX_MAX * 4, p_pci);
+//    device_init("MPMC", ADM5120_MPMC_BASE, MPMC_INDEX_MAX * 4, p_mpmc);
     device_init("INT CTRL", ADM5120_INTC_BASE, INTCTRL_INDEX_MAX * 4, p_global_device_INT);
     device_init("SW", ADM5120_SWCTRL_BASE, SW_INDEX_MAX * 4, p_global_device_SW);
     device_init("UART 0", ADM5120_UART0_BASE, 0x24, p_uart);
     device_init("NORFLASH4M", 0x1fc00000, 4 * 1048576, p_flash);
     device_init("CS8900", CS8900_IO_BASE, CS8900_SIZE, p_global_device_ETH);
-    device_init("GPIO", JZ4740_GPIO_BASE, JZ4740_GPIO_SIZE, p_gpio);
+//    device_init("GPIO", JZ4740_GPIO_BASE, JZ4740_GPIO_SIZE, p_gpio);
 
     mod_vm_memory_initiate(p_global_vm_memory);
 

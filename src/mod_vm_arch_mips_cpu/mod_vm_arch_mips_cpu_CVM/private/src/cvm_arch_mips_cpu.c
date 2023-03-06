@@ -1640,18 +1640,32 @@ std_void_t cpu_idle_loop(IN cvm_arch_mips_cpu_t *cpu)
     std_u64_t expire;
 
     expire = m_gettime_usec() + cpu->idle_sleep_time;
-
-    pthread_mutex_lock(&cpu->idle_mutex);
     t_spc.tv_sec = expire / 1000000;
     t_spc.tv_nsec = (expire % 1000000) * 1000;
+
+#if 0
+    pthread_mutex_lock(&cpu->idle_mutex);
+
     pthread_cond_timedwait(&cpu->idle_cond, &cpu->idle_mutex, &t_spc);
     pthread_mutex_unlock(&cpu->idle_mutex);
+#else
+    std_int_t s;
+    while ((s = sem_timedwait(&cpu->idle_sem, &t_spc)) == -1 && errno == EINTR){
+        continue;
+    }
+#endif
+
 }
 
 /* Break idle wait state */
 std_void_t cpu_idle_break_wait(IN cvm_arch_mips_cpu_t *cpu)
 {
+#if 0
     pthread_cond_signal(&cpu->idle_cond);
+#else
+    sem_post(&cpu->idle_sem);
+#endif
+
     cpu->idle_count = 0;
 }
 

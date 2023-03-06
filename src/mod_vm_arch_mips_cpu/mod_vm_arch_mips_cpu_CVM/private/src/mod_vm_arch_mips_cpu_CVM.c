@@ -122,6 +122,7 @@ STD_CALL std_rv_t mod_vm_arch_mips_cpu_CVM_init(IN mod_vm_arch_mips_cpu_t *p_m, 
     cpu->idle_sleep_time = 30000;
     pthread_mutex_init(&cpu->idle_mutex, NULL);
     pthread_cond_init(&cpu->idle_cond, NULL);
+    std_sem_init(&cpu->idle_sem, 0);
 
     cpu->fast_memop = FALSE;
     cpu->addr_mode = 32;

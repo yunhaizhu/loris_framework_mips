@@ -157,10 +157,11 @@ struct cvm_arch_mips_cpu{
 	mips_memop_fn mem_op_fn[MIPS_MEMOP_MAX];
 
 	/* "Idle" loop management */
-	std_uint_t idle_count,idle_max,idle_sleep_time;
+	std_u64_t idle_count,idle_max,idle_sleep_time;
 	pthread_mutex_t idle_mutex;
 	pthread_cond_t idle_cond;
-	
+    std_sem_t idle_sem;
+
 	std_u32_t idle_pc;
 
     /*pause request. INTERRUPT will pause cpu*/
